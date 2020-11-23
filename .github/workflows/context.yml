@@ -1,11 +1,15 @@
 name: Context
-on: push
+on: 
+  push:
+  pull_request:
 
 jobs:
   function:
     runs-on: ubuntu-latest
     steps:
       - name: dump
+        if: github.event_name == 'push'
+        # if: always()
         run: |
           echo ${{ contains('hello', 'll') }}
           echo ${{ startsWith('hello', 'he') }}
