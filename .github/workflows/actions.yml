@@ -1,5 +1,8 @@
 name: Actions Workflow
 on:
+  repository_dispatch:
+    types:
+      - build
   # schedule:
   #   - cron: "0 0 * * 0"
   push:
@@ -13,6 +16,9 @@ jobs:
   run-github-acitons:
     runs-on: ubuntu-latest
     steps:
+      - name: payload
+        run: |
+          echo ${{ github.event.client_payload.env }}
       - name: Checkout
         uses: actions/checkout@v2
       - name: List Files after Checkout
