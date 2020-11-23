@@ -1,11 +1,17 @@
 name: Actions Workflow
 on:
-  repository_dispatch:
-    types:
-      - build
+  # repository_dispatch:
+  #   types:
+  #     - build
   # schedule:
   #   - cron: "0 0 * * 0"
   push:
+    # branches:
+    #   - main
+    # tags:
+    #   - "v1.*"
+    # paths:
+    #   - "**/*.js"
   pull_request:
       types:
         - closed
