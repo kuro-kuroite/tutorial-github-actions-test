@@ -18,7 +18,7 @@ jobs:
       - name: Log node version
         run: |
           node -v
-      - uses: action/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
             node-version: ${{ matrix.node_version }}
       - name: Log node version
