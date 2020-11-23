@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: echo a string
         run: |
-          eccho "Hello World"
+          echo "Hello World"
       - name: multiple scripts
         run: |
           node -v
