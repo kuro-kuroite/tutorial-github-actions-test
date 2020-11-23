@@ -1,6 +1,11 @@
 name: Actions Workflow
 on:
-  - push
+  push:
+  pull_request:
+      types:
+        - closed
+        - assigned
+        - opened
 
 jobs:
   run-github-acitons:
