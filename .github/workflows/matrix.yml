@@ -13,7 +13,16 @@ jobs:
           - 10
           - 12
           - 14
+        exclude:
+          - os: ubuntu-latest
+            node_version: 10
+        include:
+          - os: macos-latest
+            node_version: 10
+            is_macos_node_10: "true"
     runs-on: ${{ matrix.os }}
+    env:
+      IS_MACOS_NODE_10: ${{ matrix.is_macos_node_10 }}
     steps:
       - name: Log node version
         run: |
@@ -24,3 +33,4 @@ jobs:
       - name: Log node version
         run: |
           node -v
+          echo $IS_MACOS_NODE_10
