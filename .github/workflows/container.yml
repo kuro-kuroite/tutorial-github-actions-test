@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     # Dockerfile と類似
     container:
-      image: node:lts-alpine3.12
+      image: docker://linuxbrew/brew
     # # docker-compose.yml と同構造
     # services:
     #   app:
@@ -20,7 +20,13 @@ jobs:
     steps:
       # step with Docker
       - name: Step with docker
-        uses: docker://node:lts-alpine3.12
+        uses: docker://linuxbrew/brew
         with:
             entrypoint: /bin/echo
+            args: Hello World
+      - uses: actions/checkout@v2
+      - name: Run a Script
+        uses: docker://linuxbrew/brew
+        with:
+            entrypoint: ./config/docker/script.sh
             args: Hello World
