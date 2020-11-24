@@ -30,3 +30,8 @@ jobs:
         with:
             entrypoint: ./config/docker/script.sh
             args: Hello World
+      # - name: send a slack message
+      #   uses: docker://technosophos/slack-notify
+      #   env:
+      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      #     SLACK_MESSAGE: "hello slack"
