@@ -1,0 +1,26 @@
+name: Container
+on: push
+
+jobs:
+  docker-step:
+    runs-on: ubuntu-latest
+    # Dockerfile と類似
+    container:
+      image: node:lts-alpine3.12
+    # # docker-compose.yml と同構造
+    # services:
+    #   app:
+    #     image: alialaa17/node-api
+    #     ports:
+    #       - "3001:3000"
+    #   mongo:
+    #     image: mongo
+    #     ports:
+    #       - "27017:27017"
+    steps:
+      # step with Docker
+      - name: Step with docker
+        uses: docker://node:lts-alpine3.12
+        with:
+            entrypoint: /bin/echo
+            args: Hello World

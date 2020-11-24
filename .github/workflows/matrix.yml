@@ -21,19 +21,6 @@ jobs:
             node_version: 10
             is_macos_node_10: "true"
     runs-on: ${{ matrix.os }}
-    # # Dockerfile と類似
-    # container:
-    #   image: node:lts-alpine3.12
-    # # docker-compose.yml と同構造
-    # services:
-    #   app:
-    #     image: alialaa17/node-api
-    #     ports:
-    #       - "3001:3000"
-    #   mongo:
-    #     image: mongo
-    #     ports:
-    #       - "27017:27017"
     env:
       IS_MACOS_NODE_10: ${{ matrix.is_macos_node_10 }}
     steps:
